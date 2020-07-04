@@ -1,0 +1,13 @@
+@import "./common.scss";
+
+@font-face {
+    font-family: pressStart;
+    src: url("../../assets/PressStart2P-vaV7.ttf");
+  }
+html {
+    background-color: $purple;
+    font-family: pressStart;
+    body{
+        margin: 0;
+    }
+}
