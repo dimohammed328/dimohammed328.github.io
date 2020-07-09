@@ -1,38 +1,123 @@
 @import "../common.scss";
 
-@keyframes growHeight{ 
-    0% { max-height: 0; max-width: 0; top: 50%}
-    25% {max-width: 0;}
-    50% {max-height: 0; max-width: 750px;}
-    75% {max-height: 250px; top: 50%} 
-    100% {top: 25%}
+@keyframes growHeight {
+  0% {
+    max-height: 0;
+    max-width: 0;
+    top: 50%;
+  }
+  25% {
+    max-width: 0;
+  }
+  50% {
+    max-height: 0;
+    max-width: 750px;
+  }
+  75% {
+    max-height: 250px;
+    top: 50%;
+  }
+  100% {
+    top: 25%;
+  }
+}
+@keyframes bio {
+  0% {
+    max-height: 0;
+    max-width: 0;
+  }
+  39% {
+    max-width: 0;
+  }
+  51% {
+    max-height: 0;
+    max-width: 750px;
+  }
+  63% {
+    max-height: 400px;
+  }
+}
+@keyframes navbar {
+    0% {transform: translateX(-100%);}
+    50% {transform: translateX(-100%);}
+    63% {transform: translateX(0);}
+}
+@keyframes link2 {
+    0% {transform: translateY(-150%);}
+    58% {transform: translateY(-150%);}
+    68% {transform: translateY(0);}
+}
+@keyframes link1 {
+    0% {transform: translateY(-150%);}
+    53% {transform: translateY(-150%);}
+    63% {transform: translateY(0);}
 }
 .main {
-    position: relative;
-    height: 100vh;
-    img {
-        height: 100%;
-        z-index: -1;
-        margin: auto;
-        position: fixed;
+  position: relative;
+  height: 100vh;
+  img {
+    height: 100%;
+    z-index: -1;
+    margin: auto;
+    position: fixed;
+  }
+  .navbar{ 
+      width: 100%;
+      background-color: $purple;
+      display: flex;
+      justify-content: flex-end;
+      border-bottom: 2px solid $yellow;
+      animation: navbar 6s;
+      .link {
+          text-decoration: none;
+          font-size: 25px;
+          margin: 15px 10px;
+          color: $yellow;
+          
+          &:nth-child(1){
+            animation: link1 8s;
+          }
+          &:nth-child(2){
+            animation: link2 8s;
+          }
+      }
+  }
+  .header {
+    position: absolute;
+    left: 50%;
+    top: 25%;
+    transform: translate(-50%, -50%);
+    overflow: hidden;
+    display: flex;
+    border: 2px solid $yellow;
+    animation: growHeight 4s;
+    div {
+      text-align: center;
+      position: relative;
+      color: $yellow;
+      white-space: nowrap;
+      font-size: 40px;
+      padding: 10px;
+      background-color: $purple;
     }
-    .header{
-        position: absolute;
-        left: 50%;
-        top: 25%;
-        transform: translate(-50%, -50%);
-        overflow: hidden;
-        display: flex;
-        border: 2px solid $yellow;
-        animation: growHeight 4s;
-        div {
-            position: relative;
-            color: $yellow;
-            font-size: 40px;
-            padding: 10px;
-            background-color: $purple;
-            animation-duration: 4s;
-            animation-fill-mode: forwards;
-        }
+  }
+  .bio {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    overflow: hidden;
+    display: flex;
+    border: 2px solid $yellow;
+    animation: bio 8s;
+    width: 750px;
+    z-index: -1;
+    div {
+      position: relative;
+      color: $yellow;
+      font-size: 40px;
+      padding: 10px;
+      background-color: $purple;
     }
+  }
 }
